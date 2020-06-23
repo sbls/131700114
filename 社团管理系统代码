@@ -44,12 +44,6 @@ $(function(){
 package com.so.system.bean;
 
 import java.io.Serializable;
-/**
- * 菜单Entity
- * @author DEMOCXY-S0
- * @version V1.0
- */
-
 public class Menu implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -161,8 +155,6 @@ public class Menu implements Serializable {
 
 /**
  * 权限Entity
- * @author DEMOCXY-S0
- * @version V1.0
  */
 public class MenuRole {
 	
@@ -212,9 +204,6 @@ package com.so.system.bean;
 
 import java.util.Date;
 /**
- * 角色Entity
- * @author DEMOCXY-S0
- * @version V1.0
  */
 public class Role {
 	
@@ -271,8 +260,6 @@ public class Role {
 import java.util.Date;
 /**
  * 系统用户Entity
- * @author DEMOCXY-S0
- * @version V1.0
  */
 public class User {
 	
