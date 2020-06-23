@@ -1,0 +1,374 @@
+<body style="background-color:#f2f9fd;">
+<div class="header bg-main">
+  <div class="logo margin-big-left fadein-top">
+    <h1><img src="${adminPath }/static/images/favicon1.ico" class="radius-circle rotate-hover" height="50" alt="" />${projectName }</h1>
+  </div>
+  <div class="head-l"><a class="button button-little bg-red" href="${adminPath}/user?method=logout"><span class="icon-power-off"></span> 退出登录</a> </div>
+</div>
+<div class="leftnav">
+  <div class="leftnav-title"><strong><span class="icon-list"></span>菜单列表</strong></div>
+  <c:forEach items="${indexMenus }" var="map">
+  	<h2><span class="icon-user"></span>${map.parentMenu.name }</h2>
+  	 <ul>
+  	<c:forEach items="${map.sonMenus }" var="menu" varStatus="num">
+  	<li><a href="${adminPath }${menu.href}" target="right"><span class="icon-caret-right"></span>${menu.name }</a></li>
+  	</c:forEach>
+  	</ul>
+  </c:forEach>
+</div>
+<script type="text/javascript">
+$(function(){
+  $(".leftnav h2").click(function(){
+	  $(this).next().slideToggle(200);	
+	  $(this).toggleClass("on"); 
+  })
+  $(".leftnav ul li a").click(function(){
+	    $("#a_leader_txt").text($(this).text());
+  		$(".leftnav ul li a").removeClass("on");
+		$(this).addClass("on");
+  })
+});
+</script>
+<ul class="bread">
+  <li><a href="${adminPath }/siteNews?method=main" target="right" class="icon-home"> 首页</a></li>
+  <li><a href="##" id="a_leader_txt">网站信息</a></li>
+</ul>
+<div class="admin">
+  <iframe scrolling="auto" rameborder="0" src="${adminPath }/siteNews?method=main" name="right" width="100%" height="100%"></iframe>
+</div>
+</body>
+</html>
+
+
+
+package com.so.system.bean;
+
+import java.io.Serializable;
+/**
+ * 菜单Entity
+ * @author DEMOCXY-S0
+ * @version V1.0
+ */
+
+public class Menu implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	private String id;
+	private String name;		// 单菜名称
+	private String href;		// 访问地址
+	private String target;		// 目标
+	private String isShow;		// 是否显示
+	private String sort;		// 排序
+	private String parentId;		// 父级ID
+	private String parentIds;		// 级父ids
+	private String remarks;
+	
+	public Menu() {
+		super();
+	}
+
+	public Menu(String id){
+		this.id = id;
+	}
+	
+	public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getHref() {
+		return href;
+	}
+
+	public void setHref(String href) {
+		this.href = href;
+	}
+	
+	public String getTarget() {
+		return target;
+	}
+
+	public void setTarget(String target) {
+		this.target = target;
+	}
+	
+	public String getIsShow() {
+		return isShow;
+	}
+
+	public void setIsShow(String isShow) {
+		this.isShow = isShow;
+	}
+	
+	public String getSort() {
+		return sort;
+	}
+
+	public void setSort(String sort) {
+		this.sort = sort;
+	}
+	
+	public String getParentId() {
+		return parentId;
+	}
+
+	public void setParentId(String parentId) {
+		this.parentId = parentId;
+	}
+	
+	public String getParentIds() {
+		return parentIds;
+	}
+
+	public void setParentIds(String parentIds) {
+		this.parentIds = parentIds;
+	}
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+	
+	private String isCheck;//是否选择
+
+	public String getIsCheck() {
+		return isCheck;
+	}
+
+	public void setIsCheck(String isCheck) {
+		this.isCheck = isCheck;
+	}
+  
+  
+  
+  package com.so.system.bean;
+
+/**
+ * 权限Entity
+ * @author DEMOCXY-S0
+ * @version V1.0
+ */
+public class MenuRole {
+	
+	private static final long serialVersionUID = 1L;
+	private String id;
+	private String roleId;		// 角色编号
+	private String menuId;		// 菜单编号
+	
+	public MenuRole() {
+		super();
+	}
+
+	public MenuRole(String id){
+		this.id = id;
+	}
+	
+	public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+
+	public String getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(String roleId) {
+		this.roleId = roleId;
+	}
+	
+	public String getMenuId() {
+		return menuId;
+	}
+
+	public void setMenuId(String menuId) {
+		this.menuId = menuId;
+	}
+	
+}
+
+
+package com.so.system.bean;
+
+import java.util.Date;
+/**
+ * 角色Entity
+ * @author DEMOCXY-S0
+ * @version V1.0
+ */
+public class Role {
+	
+	private static final long serialVersionUID = 1L;
+	private String id;
+	private String roleName;		// 角色名称
+	private String roleFlag;		// 角色标志
+	private String introduce;		// 备注
+	
+	public Role() {
+		super();
+	}
+
+	public Role(String id){
+		this.id = id;
+	}
+	
+	public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+
+	public String getRoleName() {
+		return roleName;
+	}
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
+	
+	public String getRoleFlag() {
+		return roleFlag;
+	}
+
+	public void setRoleFlag(String roleFlag) {
+		this.roleFlag = roleFlag;
+	}
+	
+	public String getIntroduce() {
+		return introduce;
+	}
+
+	public void setIntroduce(String introduce) {
+		this.introduce = introduce;
+	}
+	
+}package com.so.system.bean;
+
+import java.util.Date;
+/**
+ * 系统用户Entity
+ * @author DEMOCXY-S0
+ * @version V1.0
+ */
+public class User {
+	
+	private static final long serialVersionUID = 1L;
+	private String id;
+	private String username;		// 用户名
+	private String password;		// 密码
+	private String pic;		// 头像
+	private String role;		// 角色
+	private String isBolck;		// 是否锁定
+	
+	public User() {
+		super();
+	}
+
+	public User(String id){
+		this.id = id;
+	}
+	
+	public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public String getPic() {
+		return pic;
+	}
+
+	public void setPic(String pic) {
+		this.pic = pic;
+	}
+	
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
+	public String getIsBolck() {
+		return isBolck;
+	}
+
+	public void setIsBolck(String isBolck) {
+		this.isBolck = isBolck;
+	}
+	
+	private String roleName;//角色名称
+
+	public String getRoleName() {
+		return roleName;
+	}
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
+	
+	private Role role2;
+
+	public Role getRole2() {
+		return role2;
+	}
+
+	public void setRole2(Role role2) {
+		this.role2 = role2;
+	}
+}
+
+
+
+
+
+
+
+
+  
+}
