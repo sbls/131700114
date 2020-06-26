@@ -359,3 +359,136 @@ public class User {
 
   
 }
+
+
+
+
+
+
+
+
+---------------------------
+INSERT INTO `sys_menu` VALUES ('024fe34ed9f645e08f535ef46a5c5d88', '留言管理', '/message?method=list', '', '1', '35', '9fb149d417be412c827eee8c404ade45', null, '');
+INSERT INTO `sys_menu` VALUES ('0dd1c820f0b4433c89fb8b9c1dbae2a5', '社团管理', '', '', '1', '30', '0', null, '');
+INSERT INTO `sys_menu` VALUES ('20fdd67512804c1c8e0e60d9021e8f08', '学生管理', '/student?method=list', '', '1', '36', '0dd1c820f0b4433c89fb8b9c1dbae2a5', null, '');
+INSERT INTO `sys_menu` VALUES ('30517759024547d2a10adb847e222cfc', '活动申请', '/activeStu?method=list', '', '1', '34', '0dd1c820f0b4433c89fb8b9c1dbae2a5', null, '');
+INSERT INTO `sys_menu` VALUES ('3f0e5d8bc52541d78d5f7bc04fda6938', '个人中心', '', '', '1', '10', '0', null, '');
+INSERT INTO `sys_menu` VALUES ('43dce0db639844058550f8be9eeefe14', '社团风采', '/siteNews?method=list&newsType=3', '', '1', '33', '0dd1c820f0b4433c89fb8b9c1dbae2a5', null, '');
+INSERT INTO `sys_menu` VALUES ('7d554b290fba4ef6aa3fea766808e849', '密码修改', '/views/system/repassword.jsp', '', '1', '11', '3f0e5d8bc52541d78d5f7bc04fda6938', null, '');
+INSERT INTO `sys_menu` VALUES ('7fe02f6f5ef945ae9cb0f30d376090bd', '角色管理', '/role?method=list', '', '1', '21', '9fb149d417be412c827eee8c404ade45', null, '');
+INSERT INTO `sys_menu` VALUES ('8fd141c7abdc4c62a380dc343da2bd3b', '新闻管理', '/siteNews?method=list&newsType=1', '', '1', '32', '9fb149d417be412c827eee8c404ade45', null, '');
+INSERT INTO `sys_menu` VALUES ('90b0f70c33aa44089f6feb0a9b5abe74', '社团列表', '/teams?method=list', '', '1', '31', '0dd1c820f0b4433c89fb8b9c1dbae2a5', null, '');
+INSERT INTO `sys_menu` VALUES ('9fb149d417be412c827eee8c404ade45', '系统管理', '', '', '1', '20', '0', null, '');
+INSERT INTO `sys_menu` VALUES ('a5e002b33ae7409d81b708bb09d66b1b', '社团活动', '/siteNews?method=list&newsType=2', '', '1', '33', '0dd1c820f0b4433c89fb8b9c1dbae2a5', null, '');
+INSERT INTO `sys_menu` VALUES ('b685e1a860b841b2b96f1cef4a384caf', '菜单管理', '/menu?method=list', '', '1', '22', '9fb149d417be412c827eee8c404ade45', null, '');
+INSERT INTO `sys_menu` VALUES ('f749b9c6348c485ea454e043384e7c06', '财务管理', '/moneyManger?method=list', '', '1', '30', '0dd1c820f0b4433c89fb8b9c1dbae2a5', null, '');
+INSERT INTO `sys_menu` VALUES ('fb106ceb39324d32801d14e6e44667c2', '社团申请', '/teamApplay?method=list', '', '1', '37', '0dd1c820f0b4433c89fb8b9c1dbae2a5', null, '');
+INSERT INTO `sys_menu` VALUES ('fc97f4187f18440f91f7d07b00d9c0be', '用户管理', '/user?method=list', '', '1', '20', '9fb149d417be412c827eee8c404ade45', null, '');
+
+-- ----------------------------
+-- Table structure for sys_menu_role
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_menu_role`;
+CREATE TABLE `sys_menu_role` (
+  `role_id` varchar(64) NOT NULL COMMENT '角色编号',
+  `menu_id` varchar(64) NOT NULL COMMENT '菜单编号',
+  KEY `menu_id` (`menu_id`),
+  KEY `role_id` (`role_id`),
+  CONSTRAINT `sys_menu_role_ibfk_3` FOREIGN KEY (`menu_id`) REFERENCES `sys_menu` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `sys_menu_role_ibfk_4` FOREIGN KEY (`role_id`) REFERENCES `sys_role` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sys_menu_role
+-- ----------------------------
+INSERT INTO `sys_menu_role` VALUES ('1', '3f0e5d8bc52541d78d5f7bc04fda6938');
+INSERT INTO `sys_menu_role` VALUES ('1', '7d554b290fba4ef6aa3fea766808e849');
+INSERT INTO `sys_menu_role` VALUES ('1', '9fb149d417be412c827eee8c404ade45');
+INSERT INTO `sys_menu_role` VALUES ('1', '7fe02f6f5ef945ae9cb0f30d376090bd');
+INSERT INTO `sys_menu_role` VALUES ('1', 'b685e1a860b841b2b96f1cef4a384caf');
+INSERT INTO `sys_menu_role` VALUES ('1', 'fc97f4187f18440f91f7d07b00d9c0be');
+INSERT INTO `sys_menu_role` VALUES ('1', '0dd1c820f0b4433c89fb8b9c1dbae2a5');
+INSERT INTO `sys_menu_role` VALUES ('1', '90b0f70c33aa44089f6feb0a9b5abe74');
+INSERT INTO `sys_menu_role` VALUES ('1', '8fd141c7abdc4c62a380dc343da2bd3b');
+INSERT INTO `sys_menu_role` VALUES ('1', 'a5e002b33ae7409d81b708bb09d66b1b');
+INSERT INTO `sys_menu_role` VALUES ('1', '30517759024547d2a10adb847e222cfc');
+INSERT INTO `sys_menu_role` VALUES ('1', '024fe34ed9f645e08f535ef46a5c5d88');
+INSERT INTO `sys_menu_role` VALUES ('1', '20fdd67512804c1c8e0e60d9021e8f08');
+INSERT INTO `sys_menu_role` VALUES ('1', 'fb106ceb39324d32801d14e6e44667c2');
+INSERT INTO `sys_menu_role` VALUES ('1', '43dce0db639844058550f8be9eeefe14');
+INSERT INTO `sys_menu_role` VALUES ('1', 'f749b9c6348c485ea454e043384e7c06');
+INSERT INTO `sys_menu_role` VALUES ('b00068530a06485b8c4b5b5bf348e1cf', '0dd1c820f0b4433c89fb8b9c1dbae2a5');
+INSERT INTO `sys_menu_role` VALUES ('b00068530a06485b8c4b5b5bf348e1cf', '20fdd67512804c1c8e0e60d9021e8f08');
+INSERT INTO `sys_menu_role` VALUES ('b00068530a06485b8c4b5b5bf348e1cf', '30517759024547d2a10adb847e222cfc');
+INSERT INTO `sys_menu_role` VALUES ('b00068530a06485b8c4b5b5bf348e1cf', '43dce0db639844058550f8be9eeefe14');
+INSERT INTO `sys_menu_role` VALUES ('b00068530a06485b8c4b5b5bf348e1cf', 'a5e002b33ae7409d81b708bb09d66b1b');
+INSERT INTO `sys_menu_role` VALUES ('b00068530a06485b8c4b5b5bf348e1cf', 'f749b9c6348c485ea454e043384e7c06');
+INSERT INTO `sys_menu_role` VALUES ('b00068530a06485b8c4b5b5bf348e1cf', 'fb106ceb39324d32801d14e6e44667c2');
+INSERT INTO `sys_menu_role` VALUES ('b00068530a06485b8c4b5b5bf348e1cf', '3f0e5d8bc52541d78d5f7bc04fda6938');
+INSERT INTO `sys_menu_role` VALUES ('b00068530a06485b8c4b5b5bf348e1cf', '7d554b290fba4ef6aa3fea766808e849');
+INSERT INTO `sys_menu_role` VALUES ('b00068530a06485b8c4b5b5bf348e1cf', '9fb149d417be412c827eee8c404ade45');
+INSERT INTO `sys_menu_role` VALUES ('b00068530a06485b8c4b5b5bf348e1cf', '8fd141c7abdc4c62a380dc343da2bd3b');
+INSERT INTO `sys_menu_role` VALUES ('74c1755bcde54a6092a63765bdfb130b', '0dd1c820f0b4433c89fb8b9c1dbae2a5');
+INSERT INTO `sys_menu_role` VALUES ('74c1755bcde54a6092a63765bdfb130b', '43dce0db639844058550f8be9eeefe14');
+INSERT INTO `sys_menu_role` VALUES ('74c1755bcde54a6092a63765bdfb130b', '90b0f70c33aa44089f6feb0a9b5abe74');
+INSERT INTO `sys_menu_role` VALUES ('74c1755bcde54a6092a63765bdfb130b', 'a5e002b33ae7409d81b708bb09d66b1b');
+INSERT INTO `sys_menu_role` VALUES ('74c1755bcde54a6092a63765bdfb130b', '3f0e5d8bc52541d78d5f7bc04fda6938');
+INSERT INTO `sys_menu_role` VALUES ('74c1755bcde54a6092a63765bdfb130b', '7d554b290fba4ef6aa3fea766808e849');
+INSERT INTO `sys_menu_role` VALUES ('74c1755bcde54a6092a63765bdfb130b', '9fb149d417be412c827eee8c404ade45');
+INSERT INTO `sys_menu_role` VALUES ('74c1755bcde54a6092a63765bdfb130b', '024fe34ed9f645e08f535ef46a5c5d88');
+INSERT INTO `sys_menu_role` VALUES ('74c1755bcde54a6092a63765bdfb130b', '8fd141c7abdc4c62a380dc343da2bd3b');
+INSERT INTO `sys_menu_role` VALUES ('74c1755bcde54a6092a63765bdfb130b', 'fc97f4187f18440f91f7d07b00d9c0be');
+
+-- ----------------------------
+-- Table structure for sys_role
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_role`;
+CREATE TABLE `sys_role` (
+  `id` varchar(64) NOT NULL COMMENT '编号',
+  `role_name` varchar(64) NOT NULL COMMENT '角色名称',
+  `role_flag` varchar(64) default NULL COMMENT '角色标志',
+  `introduce` text COMMENT '备注',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sys_role
+-- ----------------------------
+INSERT INTO `sys_role` VALUES ('1', '超级管理员', 'admin', '系统数据，不能删除');
+INSERT INTO `sys_role` VALUES ('74c1755bcde54a6092a63765bdfb130b', '管理员', 'admin1', '管理人员');
+INSERT INTO `sys_role` VALUES ('b00068530a06485b8c4b5b5bf348e1cf', '社长', 'leader', '社团创始人');
+
+-- ----------------------------
+-- Table structure for sys_user
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_user`;
+CREATE TABLE `sys_user` (
+  `id` varchar(64) NOT NULL COMMENT '编号',
+  `username` varchar(64) default NULL COMMENT '用户名',
+  `password` varchar(255) default NULL COMMENT '密码',
+  `pic` varchar(255) default NULL COMMENT '头像',
+  `role` varchar(64) default NULL COMMENT '角色',
+  `is_bolck` varchar(10) default NULL COMMENT '是否锁定',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sys_user
+-- ----------------------------
+INSERT INTO `sys_user` VALUES ('1', 'sys', 'e10adc3949ba59abbe56e057f20f883e', '\\upload\\pic.jpg', '1', '0');
+INSERT INTO `sys_user` VALUES ('119836c63bd54248a77d1ecbae90b86f', ' 悲', 'e10adc3949ba59abbe56e057f20f883e', '', 'b00068530a06485b8c4b5b5bf348e1cf', '1');
+INSERT INTO `sys_user` VALUES ('1b41e8a426a44270840436f278a046cd', ' 事', 'e10adc3949ba59abbe56e057f20f883e', '', 'b00068530a06485b8c4b5b5bf348e1cf', '1');
+INSERT INTO `sys_user` VALUES ('1f5f6375ff904007b5ee1bb718316d6d', ' 风', 'e10adc3949ba59abbe56e057f20f883e', '', 'b00068530a06485b8c4b5b5bf348e1cf', '1');
+INSERT INTO `sys_user` VALUES ('2ac0dcfd9e1646f9b379faca0266973d', ' 只', 'e10adc3949ba59abbe56e057f20f883e', '', 'b00068530a06485b8c4b5b5bf348e1cf', '1');
+INSERT INTO `sys_user` VALUES ('2f1f574523534274904e1849141f8a26', ' 若', 'e10adc3949ba59abbe56e057f20f883e', '', 'b00068530a06485b8c4b5b5bf348e1cf', '1');
+INSERT INTO `sys_user` VALUES ('398329941e6c4dda867f17a2948fa401', ' 人1', 'e10adc3949ba59abbe56e057f20f883e', '', 'b00068530a06485b8c4b5b5bf348e1cf', '1');
+INSERT INTO `sys_user` VALUES ('425964f610404cdc8715e81c49fcc3f7', ' 生', 'e10adc3949ba59abbe56e057f20f883e', '', 'b00068530a06485b8c4b5b5bf348e1cf', '1');
+INSERT INTO `sys_user` VALUES ('5128ce0f7f3041199dc6bc31514f9588', ' 何', 'e10adc3949ba59abbe56e057f20f883e', '', 'b00068530a06485b8c4b5b5bf348e1cf', '1');
+INSERT INTO `sys_user` VALUES ('5cc5cac7269d475499293478a5e34bbd', ' 初', 'e10adc3949ba59abbe56e057f20f883e', '', 'b00068530a06485b8c4b5b5bf348e1cf', '1');
+INSERT INTO `sys_user` VALUES ('64f2c3bd93da4fcb9be192d74510e589', ' 秋', 'e10adc3949ba59abbe56e057f20f883e', '', 'b00068530a06485b8c4b5b5bf348e1cf', '1');
+INSERT INTO `sys_user` VALUES ('74092f4b3d2a4de4b93384f4643225d0', ' 画', 'e10adc3949ba59abbe56e057f20f883e', '', 'b00068530a06485b8c4b5b5bf348e1cf', '1');
+INSERT INTO `sys_user` VALUES ('8a32a58f085644268389ebf113e866d6', 'stu2', 'e10adc3949ba59abbe56e057f20f883e', '\\upload\\17.jpg', 'b00068530a06485b8c4b5b5bf348e1cf', '0');
+INSERT INTO `sys_user` VALUES ('99b7c841e0144f9ca40d95855d21a7a2', ' 如', 'e10adc3949ba59abbe56e057f20f883e', '', 'b00068530a06485b8c4b5b5bf348e1cf', '1');
+INSERT INTO `sys_user` VALUES ('bc3e4fc6b6f4451ca20bd24993362749', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '', '74c1755bcde54a6092a63765bdfb130b', '1');
+INSERT INTO `sys_user` VALUES ('e18a0c5b40254529ad609b689000c62a', ' 见', 'e10adc3949ba59abbe56e057f20f883e', '', 'b00068530a06485b8c4b5b5bf348e1cf', '1');
+
