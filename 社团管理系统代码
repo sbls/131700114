@@ -38,9 +38,6 @@ $(function(){
 </div>
 </body>
 </html>
-
-
-
 package com.so.system.bean;
 
 import java.io.Serializable;
@@ -153,10 +150,18 @@ public class Menu implements Serializable {
   
   package com.so.system.bean;
 
-/**
- * 权限Entity
+
+
+
+
+
+
+
+
+/*
+ * 
  */
-public class MenuRole {
+public class MenuR
 	
 	private static final long serialVersionUID = 1L;
 	private String id;
@@ -198,13 +203,8 @@ public class MenuRole {
 	}
 	
 }
-
-
 package com.so.system.bean;
-
 import java.util.Date;
-/**
- */
 public class Role {
 	
 	private static final long serialVersionUID = 1L;
@@ -258,9 +258,6 @@ public class Role {
 }package com.so.system.bean;
 
 import java.util.Date;
-/**
- * 系统用户Entity
- */
 public class User {
 	
 	private static final long serialVersionUID = 1L;
@@ -350,7 +347,7 @@ public class User {
 	}
 }
 
-
+}
 
 
 
@@ -358,7 +355,6 @@ public class User {
 
 
   
-}
 
 
 
